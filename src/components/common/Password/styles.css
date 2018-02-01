@@ -15,7 +15,7 @@
   transition: 0.1s linear all;
 
   &:focus {
-    border: 1px solid #0080ff;
+    border: 1px solid #182d67;
   }
 }
 

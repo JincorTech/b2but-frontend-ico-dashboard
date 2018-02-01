@@ -62,8 +62,8 @@ class Verification extends Component {
         <div className={s.title}>Verification failure.</div>
         <div className={s.text}>
           We were unable to match your account information automatically and uploaded documents.
-          Please reload the page and try again or contact Jincor support.<br/><br/>
-          <a href="mailto:support@jincor.com">support@jincor.com</a>
+          Please reload the page and try again or contact B2B United Trade support.<br/><br/>
+          <a href="mailto:support@b2but.com">support@b2but.com</a>
         </div>
       </div>
     );
@@ -73,7 +73,7 @@ class Verification extends Component {
         <div className={s.title}>Account verification complete</div>
         <div className={s.text}>
           Your personal data has been verified successfully,
-          and now you have full access to Jincor crowdsale.
+          and now you have full access to B2B United Trade crowdsale.
         </div>
       </div>
     );
@@ -92,7 +92,7 @@ class Verification extends Component {
     const renderPlugin = () => (
       <div id="jumio">
         <div className={s.spinner}>
-          <Spinner color="#0080ff"/>
+          <Spinner color="#182d67"/>
         </div>
       </div>
     );
