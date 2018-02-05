@@ -18,7 +18,7 @@ const BuyTokensForm = (props) => {
             component={RenderInput}
             size="large"
             name="amount"
-            placeholder="0 JCR Tokens"/>
+            placeholder="0 B2B Tokens"/>
         </div>
 
         <div className={s.field}>

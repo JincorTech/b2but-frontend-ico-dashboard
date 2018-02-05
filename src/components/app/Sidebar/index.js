@@ -16,7 +16,7 @@ const Sidebar = (props) => {
       </div>
 
       <div className={s.logo}>
-        <img src={require('../../../assets/images/logo.svg')} alt="Jincor"/>
+        <img src={require('../../../assets/images/logo.svg')} alt="B2B United Trade"/>
       </div>
 
       <div className={s.navigation}>

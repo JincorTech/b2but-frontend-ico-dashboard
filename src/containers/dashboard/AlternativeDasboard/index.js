@@ -28,7 +28,7 @@ class AlternativeDashboard extends Component {
           participants of the crowdsale are obliged to go through KYC/AML verification.<br/><br/>
           The details on how to go through this procedure and step-by-step guidelines on how
           to participate in the crowdsale will be provided closer to the date of ICO.<br/><br/>
-          To secure your share of JCR tokens, make a deposit to your Jincor wallet now.
+          To secure your share of B2B tokens, make a deposit to your B2B United Trade wallet now.
           </div>
         )
         : (
@@ -42,7 +42,7 @@ class AlternativeDashboard extends Component {
     return (
       <div className={s.dash}>
         <div className={s.title}>
-          Jincor ICO starts on December 1
+          B2B United Trade ICO starts on December 1
         </div>
 
         {renderSubtitle()}
@@ -53,9 +53,9 @@ class AlternativeDashboard extends Component {
 
         <div className={s.section}>
           <div className={s.sectionHead}>
-            <div className={s.sectionTitle}>JCR Token Price Projection</div>
+            <div className={s.sectionTitle}>B2B Token Price Projection</div>
             <div className={s.sectionSubtitle}>
-              This moderate revenue projection for JCR token value is based on businesses demand
+              This moderate revenue projection for B2B token value is based on businesses demand
               for cryptocurrency payment solutions trends and speed of spreading the smart
               contracts. For more details, please read the Whitepaper.
             </div>

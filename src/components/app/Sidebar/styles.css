@@ -17,10 +17,12 @@
 }
 
 .logo {
+  display: none;
   margin-bottom: 76px;
 
   & > img {
-    size: 35px;
+    width: 189px;
+    height: 52px;
   }
 }
 
@@ -34,11 +36,11 @@
   transition: 0.1s linear all;
 
   &:hover {
-    color: #0080ff;
+    color: #01a3b1;
   }
 
   &.active {
-    color: #0080ff;
+    color: #01a3b1;
     font: bold 16px Roboto;
 
     &:hover {
@@ -50,7 +52,7 @@
 
 .activeLink {
   composes: link;
-  color: #0080ff;
+  color: #01a3b1;
   font: bold 16px Roboto;
 
   &:hover {
