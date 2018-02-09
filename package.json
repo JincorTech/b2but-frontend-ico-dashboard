@@ -1,7 +1,7 @@
 {
   "name": "frontend-supreme-happiness",
   "version": "1.0.0",
-  "description": "Jincor Investor Dashboard",
+  "description": "B2B United Trade Investor Dashboard",
   "engines": {
     "npm": ">=3"
   },
@@ -31,6 +31,7 @@
   "author": "Jincor Tech",
   "license": "MIT",
   "dependencies": {
+    "bignumber.js": "^5.0.0",
     "caniuse-lite": "^1.0.30000756",
     "classnames": "^2.2.5",
     "date-fns": "^1.29.0",
@@ -44,6 +45,7 @@
     "i18next-browser-languagedetector": "^2.0.0",
     "i18next-xhr-backend": "^1.4.3",
     "jwt-decode": "^2.2.0",
+    "nock": "^9.1.6",
     "object-assign": "4.1.0",
     "react": "16.0.0",
     "react-copy-to-clipboard": "^5.0.1",

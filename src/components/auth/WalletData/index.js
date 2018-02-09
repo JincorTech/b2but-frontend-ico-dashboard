@@ -43,7 +43,7 @@ class WalletData extends Component {
   _getWalletData() {
     const { wallets } = this.props;
     const result = `
-    Jincor Dashboard
+    B2B United Trade Dashboard
     Address: ${wallets[0].address}
     Mnemonic: ${wallets[0].mnemonic}
     Private Key: ${wallets[0].privateKey}
@@ -57,12 +57,12 @@ class WalletData extends Component {
     const { endSignup, accessToken, wallets } = this.props;
 
     const file = new Blob([
-      `Jincor Dashboard\nAddress: ${wallets[0].address}\nMnemonic: ${wallets[0].mnemonic}\nPrivate Key: ${wallets[0].privateKey}`
+      `B2B United Trade Dashboard\nAddress: ${wallets[0].address}\nMnemonic: ${wallets[0].mnemonic}\nPrivate Key: ${wallets[0].privateKey}`
     ], { type: 'text/plain;charset=utf-8' });
 
     const continueAction = () => {
       endSignup(accessToken);
-      FileSaver.saveAs(file, 'jincor_wallet.txt');
+      FileSaver.saveAs(file, 'b2but_wallet.txt');
     };
 
     return (
@@ -71,10 +71,10 @@ class WalletData extends Component {
         <form>
           <div className={s.tip}>
             Please copy and store this information. It will allow the
-            secure access and use of your Jincor Contributor’s Dashboard.
+            secure access and use of your B2B United Trade Contributor’s Dashboard.
           </div>
 
-          <div className={s.tip}>This is your Jincor ETH wallet address:</div>
+          <div className={s.tip}>This is your B2B United Trade ETH wallet address:</div>
 
           <div className={s.field}>
             <Field

@@ -1,6 +1,9 @@
 import 'whatwg-fetch';
 import { pathCreator, checkHttpStatus, parseJSON, authHeader } from './helpers';
 
+// import { get } from '../../apiMock';
+// export { get };
+
 /**
  * Fetch wrapper function
  *

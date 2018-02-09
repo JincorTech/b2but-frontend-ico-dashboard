@@ -12,17 +12,19 @@ const User = (props) => {
     tokens
   } = props;
 
+  console.log(date);
+
   return (
     <div className={s.user}>
       <div className={s.info}>
-        <div className={s.date}>{format(new Date(date * 1000), 'MM/DD/YYYY')}</div>
+        {date && <div className={s.date}>{format(new Date(date * 1000), 'MM/DD/YYYY')}</div>}
         <div className={s.name}>{name}</div>
         <div className={s.address}>
           <span>Wallet address — </span>
           <a href={`https://etherscan.io/address/${walletAddress}`} target="_blank">{shortAddress(walletAddress)}</a>
         </div>
       </div>
-      <div className={s.tokens}>{tokens} JCR</div>
+      <div className={s.tokens}>{tokens} B2B</div>
     </div>
   );
 };

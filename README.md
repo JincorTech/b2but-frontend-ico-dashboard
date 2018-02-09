@@ -1,6 +1,4 @@
-# Jincor Investor Dashboard Frontend
-
-[![Build Status](https://travis-ci.com/JincorTech/frontend-supreme-happiness.svg?token=zhVTspsPSE9j1Tuwzqe2&branch=develop)](https://travis-ci.com/JincorTech/frontend-supreme-happiness)
+# B2B United Trade Investor Dashboard Frontend
 
 ### Scripts
 
