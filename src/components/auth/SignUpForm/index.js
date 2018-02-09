@@ -107,7 +107,7 @@ class SignUpForm extends Component {
             <Field
               component={RenderCheckbox}
               label={<span>
-                I agree with <a href="https://jincor.com/en/agreement" target="_blank">Terms of Services</a>
+                I agree with <a href="#" target="_blank">Terms of Services</a>
               </span>}
               name="agreeTos"
               validate={required}/>
