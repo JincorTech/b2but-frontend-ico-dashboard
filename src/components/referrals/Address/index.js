@@ -24,7 +24,8 @@ class Address extends Component {
         <div className={s.text}>
         Become a part of B2B United Trade’s team and help us bring transparency and cost-efficiency
         to thousands of companies from all around the world. All you have to do is to tell
-        your contacts about B2B United Trade and invite them to participate in the crowdsale using the
+        your contacts about B2B United Trade and invite them
+        to participate in the crowdsale using the
         unique link below.<br/><br/>
         This program is valid for contributions starting from 100 ETH.<br/><br/>
         For more details, please email us directly at <a href="mailto:partners@b2but.com">partners@b2but.com</a> using the subject

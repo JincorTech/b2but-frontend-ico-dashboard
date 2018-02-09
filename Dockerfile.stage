@@ -2,8 +2,8 @@ FROM node:8.0.0-alpine
 
 WORKDIR /usr/src/app
 
-ARG APIHOST=http://ico-api.stage.jincor.com
-ARG DOMAINARG=http://invest.stage.jincor.com
+ARG APIHOST=http://b2but-ico-api.stage.jincor.com
+ARG DOMAINARG=http://b2but-invest.stage.jincor.com
 
 ENV API_HOST=$APIHOST
 ENV DOMAIN=$DOMAINARG
