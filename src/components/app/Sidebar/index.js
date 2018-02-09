@@ -4,7 +4,8 @@ import s from './styles.css';
 import { namedRoutes } from '../../../routes';
 
 const Sidebar = (props) => {
-  const { kyc, closeSidebar } = props;
+  const { kyc, location, closeSidebar } = props;
+  const { pathname } = location;
 
   return (
     <div className={s.sidebar}>
@@ -50,10 +51,9 @@ const Sidebar = (props) => {
           to={namedRoutes.account}>Account</Link>
 
         {!kyc
-          ? <Link
-              className={s.link}
-              activeClassName={s.active}
-              to={namedRoutes.verification}>Verification</Link>
+          ? <a
+              className={pathname === namedRoutes.verification ? s.activeLink : s.link}
+              href={namedRoutes.verification}>Verification</a>
         : null}
       </div>
 
