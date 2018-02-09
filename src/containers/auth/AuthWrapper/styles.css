@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   height: auto;
-  background-color: #f3f5f8;
+  background-color: #182d67;
   position: relative;
 }
 
@@ -23,8 +23,8 @@
   margin-bottom: 40px;
 
   & > img {
-    width: 36px;
-    height: 36px;
+    width: 189px;
+    height: 52px;
   }
 }
 

@@ -1,6 +1,6 @@
 version: '2'
 services:
-  verifyclient:
+  frontend-ico-dashboard:
     image: jincort/b2but-ico-dashboard
     build:
       context: ./
