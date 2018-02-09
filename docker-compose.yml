@@ -1,10 +1,10 @@
 version: '2'
 services:
   frontend-ico-dashboard:
-    image: jincort/b2but-ico-dashboard
+    image: jincort/b2but-ico-dashboard:production
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - ./:/usr/src/lib
+    ports:
+       - "8080:80"
     tty: true
