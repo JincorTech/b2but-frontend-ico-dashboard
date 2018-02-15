@@ -7,7 +7,7 @@ const getMock = (path) => {
         ethAddress: '0xdb369b56BA7b07cF287f611Fbf0DAA4A8a4C2751',
         email: 'existing@test.com',
         name: 'ICO investor',
-        kycStatus: 'Not verified',
+        kycStatus: 'verified',
         defaultVerificationMethod: 'email'
       };
 
@@ -136,9 +136,16 @@ const getMock = (path) => {
 
 const postMock = (path, body) => {
   switch (path) {
-    case '/contracts/':
-      console.log('!!! POST CONTRACT. BODY:', body);
+    case '/dashboard/invest/initiate':
+      console.log('!!! POST PAYMENT. BODY:', body);
       return {
+        verification: {
+          verificationId: 'a4d642d6-8c96-4435-94b8-9a2bbd501552',
+          consumer: 'test@gmail.com',
+          expiredOn: 1509387586,
+          status: 200,
+          method: 'email'
+        }
       };
 
     default: return {};
@@ -156,14 +163,14 @@ const putMock = (path, body) => {
   }
 };
 
-export const get = (basePath) =>
+export const get = (path) =>
   new Promise((resolve) => {
     setTimeout(() => {
-      resolve(getMock(basePath));
+      resolve(getMock(path));
     }, 1000);
   });
 
-export const post = (basePath, path, body) =>
+export const post = (path, body) =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(postMock(path, body));
