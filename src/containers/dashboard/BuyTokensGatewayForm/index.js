@@ -8,7 +8,7 @@ import { ethInvest } from '../../../utils/validators';
 
 import { openKycAlertPopup } from '../../../redux/modules/app/kycAlertPopup';
 import { openTxFeeHelp } from '../../../redux/modules/dashboard/txFeeHelp';
-import { changeCurrencyValue } from '../../../redux/modules/dashboard/paymentGateway';
+import { selectCurrency } from '../../../redux/modules/dashboard/paymentGateway';
 
 import RenderInput from '../../../components/forms/RenderInput';
 import Button from '../../../components/common/Button';
@@ -21,6 +21,8 @@ class BuyTokensGatewayForm extends Component {
     this.state = {
       buttonText: ''
     };
+
+    this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
   }
 
   getCurrencyRateFromProps(props) {
@@ -47,6 +49,10 @@ class BuyTokensGatewayForm extends Component {
     return this.getCurrencyFeeFromProps(this.props);
   }
 
+  handleChangeCurrency(event) {
+    this.props.selectCurrency(event.target.value);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (!nextProps.currencyValue || !nextProps.currencies) {
       return;
@@ -57,7 +63,7 @@ class BuyTokensGatewayForm extends Component {
     }
 
     const currencyValue = new BigNum(Number.parseFloat(nextProps.currencyValue));
-    const expectedTxFee = new BigNum(this.getCurrencyFee(nextProps));
+    const expectedTxFee = new BigNum(this.getCurrencyFeeFromProps(nextProps));
     const rate = new BigNum(this.getCurrencyRateFromProps(nextProps));
     const ethRate = new BigNum(this.getEthRateFromProps(nextProps));
     const minInvest = new BigNum(0.1);
@@ -84,7 +90,8 @@ class BuyTokensGatewayForm extends Component {
       expectedTxFee,
       minInvest,
       openTxFeeHelp,
-      selectedCurrency
+      selectedCurrency,
+      currencies
     } = this.props;
 
     const renderButton = () => {
@@ -113,6 +120,11 @@ class BuyTokensGatewayForm extends Component {
     return (
       <div className={s.form}>
         <form>
+          <select className={s.select} value={selectedCurrency} onChange={this.handleChangeCurrency}>
+            {Object.keys(currencies).map((currency) =>
+              <option key={currency} value={currency}>{currency}</option>
+            )}
+          </select>
           <div className={s.field}>
             <Field
               component={RenderInput}
@@ -134,7 +146,7 @@ class BuyTokensGatewayForm extends Component {
           </div>
 
           <div className={s.gas}>
-            <span title={expectedTxFee}>Tx fee: {renderIfAvailable(expectedTxFee)} {selectedCurrency}</span>
+            <span title={expectedTxFee}>Tx fee: {renderIfAvailable(this.getCurrencyFee())} {selectedCurrency}</span>
             <span title={minInvest}>Min. contribution: {renderIfAvailable(minInvest)} {selectedCurrency}</span>
           </div>
 
@@ -174,12 +186,13 @@ export default connect(
     spinner: state.dashboard.buyTokens.spinner,
     kycStatus: state.app.app.user.kycStatus,
     ethTokenPrice: state.dashboard.dashboard.jcrTokenPrice.ETH,
+    minInvest: state.dashboard.txFee.minInvest,
     currencyValue: formSelector(state, 'currencyValue'),
     ...state.dashboard.paymentGateway
   }),
   {
     openKycAlertPopup,
     openTxFeeHelp,
-    changeCurrencyValue
+    selectCurrency
   }
 )(FormComponent);
