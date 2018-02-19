@@ -1,0 +1,35 @@
+@use postcss-short;
+
+.form {
+  width: 500px;
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.field {
+  margin: 20px 0;
+  position: relative;
+}
+
+.gas {
+  font: normal 16px Roboto;
+  color: #222;
+  text-align: center;
+  margin: 15px 0;
+
+  & > span {
+    margin: 0 10px;
+  }
+}
+
+.tip {
+  margin-top: 40px;
+  font: normal 16px/24px Roboto;
+  color: #6e7987;
+
+  & p {
+    margin-top: 20px;
+  }
+}

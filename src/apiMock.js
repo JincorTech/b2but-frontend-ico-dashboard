@@ -128,6 +128,57 @@ const getMock = (path) => {
         ]
       };
 
+    case '/gateway/currencies':
+      return {
+        BTC: {
+          is_fiat: 0,
+          rate_btc: '1.000000000000000000000000',
+          last_update: '1375473661',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        },
+        LTC: {
+          is_fiat: 0,
+          rate_btc: '0.018343387500000000000000',
+          last_update: '1518463609',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        },
+        USD: {
+          is_fiat: 1,
+          rate_btc: '0.000114884285404190000000',
+          last_update: '1518463609',
+          tx_fee: '0.00000000',
+          status: 'online',
+          capabilities: []
+        },
+        ETH: {
+          is_fiat: 0,
+          rate_btc: '0.09359024',
+          last_update: '1518463609',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        }
+      };
+
     default:
       console.log('!!! UNCATCHED PATH', path);
       return {};

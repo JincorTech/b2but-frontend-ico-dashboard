@@ -4,6 +4,7 @@ import s from './styles.css';
 
 import { fetchDashboard, changeTab } from '../../../redux/modules/dashboard/dashboard';
 import { fetchFee } from '../../../redux/modules/dashboard/txFee';
+import { fetchCurrencies } from '../../../redux/modules/dashboard/paymentGateway';
 
 import BuyTokensForm from '../BuyTokensForm';
 import BalanceInfo from '../BalanceInfo';
@@ -13,10 +14,11 @@ import BuyTokensGatewayForm from '../BuyTokensGatewayForm';
 
 class Dashboard extends Component {
   componentDidMount() {
-    const { fetchDashboard, fetchFee } = this.props;
+    const { fetchDashboard, fetchFee, fetchCurrencies } = this.props;
 
     fetchDashboard();
     fetchFee();
+    fetchCurrencies();
   }
 
   renderTabContent(tab) {
@@ -71,6 +73,7 @@ export default connect(
   {
     fetchDashboard,
     changeTab,
-    fetchFee
+    fetchFee,
+    fetchCurrencies
   }
 )(Dashboard);
