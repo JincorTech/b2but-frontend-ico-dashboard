@@ -199,6 +199,18 @@ const postMock = (path, body) => {
         }
       };
 
+    case '/gateway/createTransaction':
+      console.log('!!! POST GATEWAY TRANSACTION:', body);
+      return {
+        amount: '1.00000000',
+        address: 'YYY',
+        txn_id: 'XXX',
+        confirms_needed: '10',
+        timeout: 9000,
+        status_url: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
+        qrcode_url: 'https://www.coinpayments.net/qrgen.php?id=XXX&key=ZZZ'
+      };
+
     default: return {};
   }
 };

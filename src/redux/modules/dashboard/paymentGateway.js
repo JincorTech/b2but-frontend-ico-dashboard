@@ -3,14 +3,21 @@ import { createReducer, createAsyncAction, createAction } from '../../../utils/a
 
 export const FETCH_CURRENCIES = 'dashboard/paymentGateway/FETCH_CURRENCIES';
 export const SELECT_CURRENCY = 'dashboard/paymentGateway/SELECT_CURRENCY';
+export const CREATE_TRANSACTION = 'dashboard/paymentGateway/CREATE_TRANSACTION';
+export const CLOSE_PAYMENT_POPUP = 'dashboard/paymentGateway/CLOSE_PAYMENT_POPUP';
 
 export const fetchCurrencies = createAsyncAction(FETCH_CURRENCIES);
 export const selectCurrency = createAction(SELECT_CURRENCY);
+export const createTransaction = createAsyncAction(CREATE_TRANSACTION);
+export const closePaymentPopup = createAction(CLOSE_PAYMENT_POPUP);
 
 const initialState = from({
   tokenValue: 0,
   selectedCurrency: 'ETH',
-  currencies: {}
+  currencies: {},
+  paymentData: {},
+  paymentPopupIsOpen: false,
+  spinner: false
 });
 
 export default createReducer({
@@ -23,6 +30,32 @@ export default createReducer({
   [SELECT_CURRENCY]: (state, { payload }) => (
     state.merge({
       selectedCurrency: payload
+    })
+  ),
+
+  [createTransaction.REQUEST]: (state, { payload }) => (
+    state.merge({
+      spinner: true
+    })
+  ),
+
+  [createTransaction.SUCCESS]: (state, { payload }) => (
+    state.merge({
+      paymentPopupIsOpen: true,
+      paymentData: payload,
+      spinner: false
+    })
+  ),
+
+  [createTransaction.FAILURE]: (state, { payload }) => (
+    state.merge({
+      spinner: false
+    })
+  ),
+
+  [CLOSE_PAYMENT_POPUP]: (state, { payload }) => (
+    state.merge({
+      paymentPopupIsOpen: false
     })
   ),
 }, initialState);

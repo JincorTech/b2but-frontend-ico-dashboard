@@ -8,11 +8,13 @@ import { ethInvest } from '../../../utils/validators';
 
 import { openKycAlertPopup } from '../../../redux/modules/app/kycAlertPopup';
 import { openTxFeeHelp } from '../../../redux/modules/dashboard/txFeeHelp';
-import { selectCurrency } from '../../../redux/modules/dashboard/paymentGateway';
+import { selectCurrency, createTransaction } from '../../../redux/modules/dashboard/paymentGateway';
 
 import RenderInput from '../../../components/forms/RenderInput';
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
+
+import GatewayPaymentPopup from '../../../containers/dashboard/GatewayPaymentPopup';
 
 class BuyTokensGatewayForm extends Component {
   constructor(props) {
@@ -91,14 +93,19 @@ class BuyTokensGatewayForm extends Component {
       minInvest,
       openTxFeeHelp,
       selectedCurrency,
-      currencies
+      currencies,
+      currencyValue,
+      createTransaction
     } = this.props;
 
     const renderButton = () => {
       if (kycStatus === 'verified') {
         return (
           <Button
-            onClick={() => openMnemonicPopup()}
+            onClick={() => createTransaction({
+              amount: currencyValue,
+              currency: selectedCurrency
+            })}
             disabled={invalid}
             spinner={spinner}>Purchase tokens{this.state.buttonText}</Button>
         );
@@ -167,6 +174,8 @@ class BuyTokensGatewayForm extends Component {
             <a onClick={() => openTxFeeHelp()}>What is the tx fee?</a>
           </p>
         </div>
+
+        <GatewayPaymentPopup/>
       </div>
     );
   }
@@ -193,6 +202,7 @@ export default connect(
   {
     openKycAlertPopup,
     openTxFeeHelp,
-    selectCurrency
+    selectCurrency,
+    createTransaction
   }
 )(FormComponent);
