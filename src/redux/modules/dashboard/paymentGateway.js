@@ -33,7 +33,7 @@ export default createReducer({
     })
   ),
 
-  [createTransaction.REQUEST]: (state, { payload }) => (
+  [createTransaction.REQUEST]: (state) => (
     state.merge({
       spinner: true
     })
@@ -47,13 +47,13 @@ export default createReducer({
     })
   ),
 
-  [createTransaction.FAILURE]: (state, { payload }) => (
+  [createTransaction.FAILURE]: (state) => (
     state.merge({
       spinner: false
     })
   ),
 
-  [CLOSE_PAYMENT_POPUP]: (state, { payload }) => (
+  [CLOSE_PAYMENT_POPUP]: (state) => (
     state.merge({
       paymentPopupIsOpen: false
     })

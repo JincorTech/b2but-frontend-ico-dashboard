@@ -12,7 +12,6 @@ import { selectCurrency, createTransaction } from '../../../redux/modules/dashbo
 
 import RenderInput from '../../../components/forms/RenderInput';
 import Button from '../../../components/common/Button';
-import Input from '../../../components/common/Input';
 
 import GatewayPaymentPopup from '../../../containers/dashboard/GatewayPaymentPopup';
 
@@ -36,7 +35,7 @@ class BuyTokensGatewayForm extends Component {
   }
 
   getEthRateFromProps(props) {
-    return props.currencies['ETH'].rate_btc;
+    return props.currencies.ETH.rate_btc;
   }
 
   getEthRate() {
@@ -127,10 +126,11 @@ class BuyTokensGatewayForm extends Component {
     return (
       <div className={s.form}>
         <form>
-          <select className={s.select} value={selectedCurrency} onChange={this.handleChangeCurrency}>
+          <select className={s.select}
+                  value={selectedCurrency}
+                  onChange={this.handleChangeCurrency}>
             {Object.keys(currencies).map((currency) =>
-              <option key={currency} value={currency}>{currency}</option>
-            )}
+              <option key={currency} value={currency}>{currency}</option>)}
           </select>
           <div className={s.field}>
             <Field
@@ -153,8 +153,12 @@ class BuyTokensGatewayForm extends Component {
           </div>
 
           <div className={s.gas}>
-            <span title={expectedTxFee}>Tx fee: {renderIfAvailable(this.getCurrencyFee())} {selectedCurrency}</span>
-            <span title={minInvest}>Min. contribution: {renderIfAvailable(minInvest)} {selectedCurrency}</span>
+            <span title={expectedTxFee}>
+              Tx fee: {renderIfAvailable(this.getCurrencyFee())} {selectedCurrency}
+            </span>
+            <span title={minInvest}>
+              Min. contribution: {renderIfAvailable(minInvest)} {selectedCurrency}
+            </span>
           </div>
 
           <div className={s.button}>

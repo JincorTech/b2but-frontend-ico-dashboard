@@ -34,7 +34,7 @@ class Dashboard extends Component {
       default:
         return null;
     }
-  };
+  }
 
   render() {
     const { tab, changeTab } = this.props;
