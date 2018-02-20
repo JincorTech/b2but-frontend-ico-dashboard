@@ -208,7 +208,7 @@ const postMock = (path, body) => {
         confirms_needed: '10',
         timeout: 9000,
         status_url: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
-        qrcode_url: 'https://www.coinpayments.net/qrgen.php?id=XXX&key=ZZZ'
+        qrcode_url: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png'
       };
 
     default: return {};

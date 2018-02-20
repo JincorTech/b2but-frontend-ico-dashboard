@@ -22,7 +22,11 @@ const GatewayPaymentPopup = (props) => {
       },
       {
         caption: 'Send To Address:',
-        value: paymentData.address
+        value:
+        <p>
+          {paymentData.address}
+          <img className={s.qr} src={paymentData.qrcode_url}></img>
+        </p>
       },
       {
         caption: 'Waiting time for payment:',

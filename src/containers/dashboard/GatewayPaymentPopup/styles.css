@@ -26,3 +26,9 @@
   font-size: 22px;
   color: #808080;
 }
+
+.qr {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
