@@ -10,10 +10,19 @@
 .text {
   font: normal 16px/24px Roboto;
   color: #222;
-  text-align: center;
+  text-align: left;
   margin: 25px 0;
 }
 
 .button {
   margin-top: 30px;
+}
+
+.caption {
+  display: block;
+}
+
+.value {
+  font-size: 22px;
+  color: #808080;
 }

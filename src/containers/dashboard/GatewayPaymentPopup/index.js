@@ -10,17 +10,51 @@ const GatewayPaymentPopup = (props) => {
   const {
     open,
     closePaymentPopup,
-    paymentData
+    paymentData,
+    selectedCurrency
   } = props;
+
+  const getRows = () => {
+    return [
+      {
+        caption: 'Order Total:',
+        value: `${paymentData.amount} ${selectedCurrency}`
+      },
+      {
+        caption: 'Send To Address:',
+        value: paymentData.address
+      },
+      {
+        caption: 'Waiting time for payment:',
+        value: `${paymentData.timeout} sec`
+      },
+      {
+        caption: 'Payment ID:',
+        value: `${paymentData.txn_id}`
+      }
+    ]
+  }
 
   return (
     <Popup
       open={open}
       close={() => closePaymentPopup()}>
       <div>
-        <div className={s.title}>Payment details</div>
+        <div className={s.title}>Waiting for your funds</div>
         <div className={s.text}>
-          {Object.keys(paymentData).map((item) => <p key={item}>{item}: {paymentData[item]}</p>)}
+          {getRows().map((row) => {
+            return (
+              <p key={row.caption}>
+                <span className={s.caption}>{row.caption}</span>
+                <span className={s.value}>{row.value}</span>
+              </p>
+            )
+          })}
+          <p>
+            <span className={s.caption}>
+              <a href={paymentData.status_url}>Transaction status link</a>
+            </span>
+          </p>
         </div>
       </div>
     </Popup>
@@ -30,7 +64,8 @@ const GatewayPaymentPopup = (props) => {
 export default connect(
   (state) => ({
     open: state.dashboard.paymentGateway.paymentPopupIsOpen,
-    paymentData: state.dashboard.paymentGateway.paymentData
+    paymentData: state.dashboard.paymentGateway.paymentData,
+    selectedCurrency: state.dashboard.paymentGateway.selectedCurrency
   }),
   {
     closePaymentPopup
