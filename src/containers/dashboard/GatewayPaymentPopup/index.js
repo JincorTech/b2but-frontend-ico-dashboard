@@ -14,30 +14,28 @@ const GatewayPaymentPopup = (props) => {
     selectedCurrency
   } = props;
 
-  const getRows = () => {
-    return [
-      {
-        caption: 'Order Total:',
-        value: `${paymentData.amount} ${selectedCurrency}`
-      },
-      {
-        caption: 'Send To Address:',
-        value:
+  const getRows = () => [
+    {
+      caption: 'Order Total:',
+      value: `${paymentData.amount} ${selectedCurrency}`
+    },
+    {
+      caption: 'Send To Address:',
+      value:
         <p>
           {paymentData.address}
           <img className={s.qr} src={paymentData.qrcode_url}></img>
         </p>
-      },
-      {
-        caption: 'Waiting time for payment:',
-        value: `${paymentData.timeout} sec`
-      },
-      {
-        caption: 'Payment ID:',
-        value: `${paymentData.txn_id}`
-      }
-    ]
-  }
+    },
+    {
+      caption: 'Waiting time for payment:',
+      value: `${paymentData.timeout} sec`
+    },
+    {
+      caption: 'Payment ID:',
+      value: `${paymentData.txn_id}`
+    }
+  ];
 
   return (
     <Popup
@@ -46,14 +44,12 @@ const GatewayPaymentPopup = (props) => {
       <div>
         <div className={s.title}>Waiting for your funds</div>
         <div className={s.text}>
-          {getRows().map((row) => {
-            return (
-              <p key={row.caption}>
-                <span className={s.caption}>{row.caption}</span>
-                <span className={s.value}>{row.value}</span>
-              </p>
-            )
-          })}
+          {getRows().map((row) => (
+            <p key={row.caption}>
+              <span className={s.caption}>{row.caption}</span>
+              <span className={s.value}>{row.value}</span>
+            </p>
+          ))}
           <p>
             <span className={s.caption}>
               <a href={paymentData.status_url}>Transaction status link</a>
