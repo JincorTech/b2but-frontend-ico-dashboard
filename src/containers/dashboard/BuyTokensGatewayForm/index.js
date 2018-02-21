@@ -20,7 +20,8 @@ class BuyTokensGatewayForm extends Component {
     super(props);
 
     this.state = {
-      buttonText: ''
+      buttonText: '',
+      totalAmount: '',
     };
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
@@ -64,18 +65,21 @@ class BuyTokensGatewayForm extends Component {
     }
 
     const currencyValue = new BigNum(Number.parseFloat(nextProps.currencyValue));
-    const expectedTxFee = new BigNum(this.getCurrencyFeeFromProps(nextProps));
-    const rate = new BigNum(this.getCurrencyRateFromProps(nextProps));
+    const currencyRate = new BigNum(this.getCurrencyRateFromProps(nextProps));
+    const ethTxFee = new BigNum(nextProps.ethTxFee);
     const ethRate = new BigNum(this.getEthRateFromProps(nextProps));
     const minInvest = new BigNum(0.1);
 
     if (currencyValue.toNumber() && currencyValue.greaterThanOrEqualTo(minInvest)) {
-      const btc = currencyValue.mul(rate);
-      const eth = btc.dividedBy(ethRate);
+      const eth = currencyValue.mul(currencyRate).dividedBy(ethRate);
       const tokens = eth.dividedBy(nextProps.ethTokenPrice).toFixed(3);
-      const currencyAmount = currencyValue.plus(expectedTxFee);
+      const expectedFee = nextProps.selectedCurrency === 'ETH'
+                          ? ethTxFee
+                          : ethTxFee.mul(ethRate).dividedBy(currencyRate);
+      const currencyAmount = currencyValue.plus(expectedFee);
       this.props.change('tokens', tokens);
-      this.setState({ buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}` });
+      this.setState({ buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
+                      totalAmount: `${currencyAmount}` });
     } else {
       this.props.change('tokens', '');
       this.setState({ buttonText: '' });
@@ -88,7 +92,7 @@ class BuyTokensGatewayForm extends Component {
       invalid,
       kycStatus,
       openKycAlertPopup,
-      expectedTxFee,
+      ethTxFee,
       minInvest,
       openTxFeeHelp,
       selectedCurrency,
@@ -102,7 +106,7 @@ class BuyTokensGatewayForm extends Component {
         return (
           <Button
             onClick={() => createTransaction({
-              amount: currencyValue,
+              amount: this.state.totalAmount,
               currency: selectedCurrency
             })}
             disabled={invalid}
@@ -153,8 +157,8 @@ class BuyTokensGatewayForm extends Component {
           </div>
 
           <div className={s.gas}>
-            <span title={expectedTxFee}>
-              Tx fee: {renderIfAvailable(this.getCurrencyFee())} {selectedCurrency}
+            <span title={ethTxFee}>
+              Purchising Tx fee: {renderIfAvailable(ethTxFee)} ETH
             </span>
             <span title={minInvest}>
               Min. contribution: {renderIfAvailable(minInvest)} {selectedCurrency}
@@ -199,6 +203,7 @@ export default connect(
     spinner: state.dashboard.buyTokens.spinner,
     kycStatus: state.app.app.user.kycStatus,
     ethTokenPrice: state.dashboard.dashboard.jcrTokenPrice.ETH,
+    ethTxFee: state.dashboard.txFee.expectedTxFee,
     minInvest: state.dashboard.txFee.minInvest,
     currencyValue: formSelector(state, 'currencyValue'),
     ...state.dashboard.paymentGateway
