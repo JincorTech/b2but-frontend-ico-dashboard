@@ -32,3 +32,8 @@
   height: 180px;
   display: block;
 }
+
+.warning {
+  display: block;
+  color: #ff0000;
+}

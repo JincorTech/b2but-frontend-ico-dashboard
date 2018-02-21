@@ -53,6 +53,7 @@ const GatewayPaymentPopup = (props) => {
           <p>
             <span className={s.caption}>
               <a href={paymentData.status_url}>Transaction status link</a>
+              <span className={s.warning}>SAVE THIS LINK TO TRACK YOUR TRANSACTION!</span>
             </span>
           </p>
         </div>
