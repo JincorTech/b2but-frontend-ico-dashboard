@@ -43,14 +43,6 @@ class BuyTokensGatewayForm extends Component {
     return this.getEthRateFromProps(this.props);
   }
 
-  getCurrencyFeeFromProps(props) {
-    return props.currencies[props.selectedCurrency].tx_fee;
-  }
-
-  getCurrencyFee() {
-    return this.getCurrencyFeeFromProps(this.props);
-  }
-
   handleChangeCurrency(event) {
     this.props.selectCurrency(event.target.value);
   }
@@ -74,12 +66,14 @@ class BuyTokensGatewayForm extends Component {
       const eth = currencyValue.mul(currencyRate).dividedBy(ethRate);
       const tokens = eth.dividedBy(nextProps.ethTokenPrice).toFixed(3);
       const expectedFee = nextProps.selectedCurrency === 'ETH'
-                          ? ethTxFee
-                          : ethTxFee.mul(ethRate).dividedBy(currencyRate);
+        ? ethTxFee
+        : ethTxFee.mul(ethRate).dividedBy(currencyRate);
       const currencyAmount = currencyValue.plus(expectedFee);
       this.props.change('tokens', tokens);
-      this.setState({ buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
-                      totalAmount: `${currencyAmount}` });
+      this.setState({
+        buttonText: ` for ${currencyAmount.toString()} ${nextProps.selectedCurrency}`,
+        totalAmount: `${currencyAmount}`
+      });
     } else {
       this.props.change('tokens', '');
       this.setState({ buttonText: '' });
@@ -97,7 +91,6 @@ class BuyTokensGatewayForm extends Component {
       openTxFeeHelp,
       selectedCurrency,
       currencies,
-      currencyValue,
       createTransaction
     } = this.props;
 
