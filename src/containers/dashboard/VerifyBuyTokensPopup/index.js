@@ -49,7 +49,7 @@ class VerifyBuyTokensPopup extends Component {
 
     return (
       <Popup
-        title="Verify B2B Purchase"
+        title="Verify UTT Purchase"
         open={open}
         close={() => closeVerifyPopup()}>
 
