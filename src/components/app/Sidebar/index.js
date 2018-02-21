@@ -58,14 +58,23 @@ const Sidebar = (props) => {
       </div>
 
       <div className={s.socials}>
-        <a href="http://t.me/jincorICOeng" target="_blank">
-          <img src={require('../../../assets/images/social-icons/telegram.svg')}/>
-        </a>
-        <a href="https://www.facebook.com/jincorlimited/" target="_blank">
+      <a href="https://www.facebook.com/b2but/" target="_blank">
           <img src={require('../../../assets/images/social-icons/facebook.svg')}/>
         </a>
-        <a href="https://twitter.com/jincor_ico" target="_blank">
+        <a href="https://twitter.com/b2but" target="_blank">
           <img src={require('../../../assets/images/social-icons/twitter.svg')}/>
+        </a>
+        <a href="https://t.me/b2but_ru" target="_blank">
+          <img src={require('../../../assets/images/social-icons/telegram.svg')}/>
+          <span className={s.socialText}>RU</span>
+        </a>
+        <a href="https://t.me/b2but" target="_blank">
+          <img src={require('../../../assets/images/social-icons/telegram.svg')}/>
+          <span className={s.socialText}>ENG</span>
+        </a>
+        <a href="https://t.me/b2but_live" target="_blank">
+          <img src={require('../../../assets/images/social-icons/telegram.svg')}/>
+          <span className={s.socialText}>LIVE</span>
         </a>
       </div>
     </div>
