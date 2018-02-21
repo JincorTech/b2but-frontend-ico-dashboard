@@ -129,7 +129,7 @@ class AlternativeDashboard extends Component {
         </div>
 
         <div className={s.wpLink}>
-          <a href="https://jincor.com/whitepaper" target="_blank">Read the Whitepaper</a>
+          <a href="http://b2but.com/b2b_wp_en.pdf" target="_blank">Read the Whitepaper</a>
         </div>
       </div>
     );
