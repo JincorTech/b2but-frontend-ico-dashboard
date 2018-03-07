@@ -28,7 +28,7 @@ class AlternativeDashboard extends Component {
           participants of the crowdsale are obliged to go through KYC/AML verification.<br/><br/>
           The details on how to go through this procedure and step-by-step guidelines on how
           to participate in the crowdsale will be provided closer to the date of ICO.<br/><br/>
-          To secure your share of UTT tokens, make a deposit to your B2B United Trade wallet now.
+          To secure your share of UTT tokens, make a deposit to your Export Online wallet now.
           </div>
         )
         : (
@@ -42,7 +42,7 @@ class AlternativeDashboard extends Component {
     return (
       <div className={s.dash}>
         <div className={s.title}>
-          B2B United Trade ICO starts on December 1
+          Export Online ICO starts on December 1
         </div>
 
         {renderSubtitle()}

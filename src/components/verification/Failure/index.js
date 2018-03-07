@@ -6,7 +6,7 @@ const Failure = () => (
     <div className={s.title}>Verification failure.</div>
     <div className={s.text}>
       We were unable to match your account information automatically and uploaded documents.
-      Please reload the page and try again or contact B2B United Trade support.<br/><br/>
+      Please reload the page and try again or contact Export Online support.<br/><br/>
       <a href="mailto:info@export.online">info@export.online</a>
     </div>
   </div>
