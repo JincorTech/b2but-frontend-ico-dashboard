@@ -128,7 +128,7 @@ const getMock = (path) => {
         ]
       };
 
-    case '/gateway/currencies':
+    case '/dashboard/currencies':
       return {
         BTC: {
           is_fiat: 0,
@@ -199,12 +199,12 @@ const postMock = (path, body) => {
         }
       };
 
-    case '/gateway/createTransaction':
+    case '/dashboard/createTransaction':
       console.log('!!! POST GATEWAY TRANSACTION:', body);
       return {
         amount: '1.00000000',
-        address: 'YYY',
-        txn_id: 'XXX',
+        address: '0xf3268eac2455e5daf0ac60ad33096a381060ddca',
+        txn_id: 'CPCC5PFWQLX81ADHWU8M7VRGEB',
         confirms_needed: '10',
         timeout: 9000,
         status_url: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',

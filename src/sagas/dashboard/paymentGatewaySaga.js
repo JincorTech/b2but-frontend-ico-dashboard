@@ -9,7 +9,7 @@ import { fetchCurrencies, createTransaction } from '../../redux/modules/dashboar
 
 function* fetchCurrenciesIterator() {
   try {
-    const data = yield call(get, '/gateway/currencies');
+    const data = yield call(get, '/dashboard/currencies');
     yield put(fetchCurrencies.success(data));
   } catch (e) {
     yield put(fetchCurrencies.failure(e));
@@ -29,7 +29,7 @@ function* fetchCurrenciesSaga() {
 
 function* createTransactionIterator({ payload }) {
   try {
-    const data = yield call(post, '/gateway/createTransaction', payload);
+    const data = yield call(post, '/dashboard/createTransaction', payload);
     yield put(createTransaction.success(data));
   } catch (e) {
     yield put(createTransaction.failure(e));

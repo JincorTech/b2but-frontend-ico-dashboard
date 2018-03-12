@@ -22,10 +22,10 @@ const GatewayPaymentPopup = (props) => {
     {
       caption: 'Send To Address:',
       value:
-        <p>
+        <span>
           {paymentData.address}
           <img className={s.qr} src={paymentData.qrcode_url}></img>
-        </p>
+        </span>
     },
     {
       caption: 'Waiting time for payment:',
@@ -39,6 +39,7 @@ const GatewayPaymentPopup = (props) => {
 
   return (
     <Popup
+      width={500}
       open={open}
       close={() => closePaymentPopup()}>
       <div>
