@@ -37,7 +37,7 @@ class MakeDepositPopup extends Component {
         <div>
           <div className={s.text}>
             Use this address to deposit ETH from
-            your personal wallet to B2B United Trade Contributor’s Account
+            your personal wallet to Export Online Contributor’s Account
           </div>
 
           <Field

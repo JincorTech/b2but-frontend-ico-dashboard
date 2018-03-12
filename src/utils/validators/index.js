@@ -72,5 +72,5 @@ export const ethInvest = [
 export const jcrInvest = (rate) => [
   requiredValidator('Must be filled'),
   numberValidator('Only numbers'),
-  minNumber(0.1 / rate, `Min ${0.1 / rate} B2B`)
+  minNumber(0.1 / rate, `Min ${0.1 / rate} UTT`)
 ];

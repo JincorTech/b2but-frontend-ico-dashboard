@@ -1,4 +1,4 @@
-# B2B United Trade Investor Dashboard Frontend
+# Export Online Investor Dashboard Frontend
 
 ### Scripts
 
