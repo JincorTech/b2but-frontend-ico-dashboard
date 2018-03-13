@@ -15,7 +15,7 @@ const BalanceInfo = (props) => {
 
       <div className={s.block}>
         <div className={s.val}>{bigNum(123949, 2)}</div>
-        <div className={s.label}>B2B token balance</div>
+        <div className={s.label}>UTT token balance</div>
       </div>
     </div>
   );

@@ -24,6 +24,7 @@ import dashboard from './modules/dashboard/dashboard';
 import buyTokens from './modules/dashboard/buyTokens';
 import txFee from './modules/dashboard/txFee';
 import txFeeHelp from './modules/dashboard/txFeeHelp';
+import paymentGateway from './modules/dashboard/paymentGateway';
 
 import transactions from './modules/transactions/transactions';
 
@@ -68,7 +69,8 @@ export default combineReducers({
     dashboard,
     buyTokens,
     txFee,
-    txFeeHelp
+    txFeeHelp,
+    paymentGateway
   }),
 
   transactions: combineReducers({

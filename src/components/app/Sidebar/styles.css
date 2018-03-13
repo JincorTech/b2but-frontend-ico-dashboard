@@ -21,8 +21,7 @@
   margin-bottom: 76px;
 
   & > img {
-    width: 189px;
-    height: 52px;
+    height: 63px;
   }
 }
 
@@ -69,13 +68,19 @@
 
 .socials {
   position: absolute * * 20px *;
-  margin: 0 -10px;
 
   & > a {
-    margin: 0 10px;
+    width: 100px;
+    margin: 0 10px 15px 0;
+    display: inline-flex;
 
     & > img {
       size: 24px;
     }
   }
+}
+
+.socialText {
+  line-height: 25px;
+  margin-left: 5px;
 }

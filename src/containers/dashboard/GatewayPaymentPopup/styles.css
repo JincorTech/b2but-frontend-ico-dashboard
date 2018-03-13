@@ -1,0 +1,39 @@
+@use postcss-short;
+@use postcss-inline-svg;
+
+.title {
+  font: normal 26px/38px Roboto;
+  color: #222;
+  text-align: center;
+}
+
+.text {
+  font: normal 16px/24px Roboto;
+  color: #222;
+  text-align: left;
+  margin: 25px 0;
+}
+
+.button {
+  margin-top: 30px;
+}
+
+.caption {
+  display: block;
+}
+
+.value {
+  font-size: 18px;
+  color: #808080;
+}
+
+.qr {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
+
+.warning {
+  display: block;
+  color: #ff0000;
+}

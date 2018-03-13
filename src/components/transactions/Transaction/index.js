@@ -38,11 +38,11 @@ const Transaction = (props) => {
     }
 
     if (type === 'jcr_transfer' && direction === 'in') {
-      return (<div className={s.name}>B2B Tokens received (+ {jcrAmount} B2B)</div>);
+      return (<div className={s.name}>UTT Tokens received (+ {jcrAmount} UTT)</div>);
     }
 
     if (type === 'jcr_transfer' && direction === 'out') {
-      return (<div className={s.name}>B2B Tokens sent (- {jcrAmount} B2B)</div>);
+      return (<div className={s.name}>UTT Tokens sent (- {jcrAmount} UTT)</div>);
     }
 
     return (<div>error</div>);

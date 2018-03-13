@@ -7,7 +7,7 @@ const getMock = (path) => {
         ethAddress: '0xdb369b56BA7b07cF287f611Fbf0DAA4A8a4C2751',
         email: 'existing@test.com',
         name: 'ICO investor',
-        kycStatus: 'Not verified',
+        kycStatus: 'verified',
         defaultVerificationMethod: 'email'
       };
 
@@ -128,6 +128,57 @@ const getMock = (path) => {
         ]
       };
 
+    case '/dashboard/currencies':
+      return {
+        BTC: {
+          is_fiat: 0,
+          rate_btc: '1.000000000000000000000000',
+          last_update: '1375473661',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        },
+        LTC: {
+          is_fiat: 0,
+          rate_btc: '0.018343387500000000000000',
+          last_update: '1518463609',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        },
+        USD: {
+          is_fiat: 1,
+          rate_btc: '0.000114884285404190000000',
+          last_update: '1518463609',
+          tx_fee: '0.00000000',
+          status: 'online',
+          capabilities: []
+        },
+        ETH: {
+          is_fiat: 0,
+          rate_btc: '0.09359024',
+          last_update: '1518463609',
+          tx_fee: '0.00100000',
+          status: 'online',
+          capabilities: [
+            'payments',
+            'wallet',
+            'transfers',
+            'convert'
+          ]
+        }
+      };
+
     default:
       console.log('!!! UNCATCHED PATH', path);
       return {};
@@ -136,9 +187,28 @@ const getMock = (path) => {
 
 const postMock = (path, body) => {
   switch (path) {
-    case '/contracts/':
-      console.log('!!! POST CONTRACT. BODY:', body);
+    case '/dashboard/invest/initiate':
+      console.log('!!! POST PAYMENT. BODY:', body);
       return {
+        verification: {
+          verificationId: 'a4d642d6-8c96-4435-94b8-9a2bbd501552',
+          consumer: 'test@gmail.com',
+          expiredOn: 1509387586,
+          status: 200,
+          method: 'email'
+        }
+      };
+
+    case '/dashboard/createTransaction':
+      console.log('!!! POST GATEWAY TRANSACTION:', body);
+      return {
+        amount: '1.00000000',
+        address: '0xf3268eac2455e5daf0ac60ad33096a381060ddca',
+        txn_id: 'CPCC5PFWQLX81ADHWU8M7VRGEB',
+        confirms_needed: '10',
+        timeout: 9000,
+        status_url: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
+        qrcode_url: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png'
       };
 
     default: return {};
@@ -156,14 +226,14 @@ const putMock = (path, body) => {
   }
 };
 
-export const get = (basePath) =>
+export const get = (path) =>
   new Promise((resolve) => {
     setTimeout(() => {
-      resolve(getMock(basePath));
+      resolve(getMock(path));
     }, 1000);
   });
 
-export const post = (basePath, path, body) =>
+export const post = (path, body) =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(postMock(path, body));
