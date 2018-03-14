@@ -2,6 +2,7 @@ import { all, takeLatest, call, put, fork } from 'redux-saga/effects';
 import { get, post } from '../../utils/fetch';
 
 import { fetchCurrencies, createTransaction } from '../../redux/modules/dashboard/paymentGateway';
+import { transformCreateTransactionResponse } from '../../helpers/transformers/paymentGateway/paymentDetails';
 
 /**
  * Fetch Currencies
@@ -30,7 +31,7 @@ function* fetchCurrenciesSaga() {
 function* createTransactionIterator({ payload }) {
   try {
     const data = yield call(post, '/dashboard/createTransaction', payload);
-    yield put(createTransaction.success(data));
+    yield put(createTransaction.success(transformCreateTransactionResponse(data)));
   } catch (e) {
     yield put(createTransaction.failure(e));
   }
