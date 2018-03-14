@@ -6,6 +6,7 @@ import { fetchTransactions } from '../../../redux/modules/transactions/transacti
 import { openMakeDepositPopup } from '../../../redux/modules/app/makeDepositPopup';
 
 import Transaction from '../../../components/transactions/Transaction';
+import GatewayTransaction from '../../../components/transactions/GatewayTransaction';
 import Button from '../../../components/common/Button';
 
 class Transactions extends Component {
@@ -28,8 +29,11 @@ class Transactions extends Component {
     const renderTransactions = () => (
       <div className={s.main}>
         <div className={s.title}>Latest transactions</div>
-        {this._getSortedTransactions().map((t) =>
-          (<Transaction key={`${t.transactionHash}${t.type}${t.from}${t.to}`} {...t}/>))}
+        {this._getSortedTransactions().map((t) => (
+          t.type === 'gateway_transaction'
+            ? <GatewayTransaction key={t.id} {...t}/>
+            : <Transaction key={`${t.transactionHash}${t.type}${t.from}${t.to}`} {...t}/>
+        ))}
       </div>
     );
 
