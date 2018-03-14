@@ -1,4 +1,4 @@
-export const transformCreateTransactionResponse = (response) => ({
+const transformCreateTransactionResponse = (response) => ({
   totalAmount: response.amount,
   address: response.address,
   txnId: response.txn_id,
@@ -7,3 +7,5 @@ export const transformCreateTransactionResponse = (response) => ({
   statusUrl: response.status_url,
   qrcodeUrl: response.qrcode_url
 });
+
+export default transformCreateTransactionResponse;

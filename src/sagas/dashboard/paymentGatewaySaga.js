@@ -2,7 +2,7 @@ import { all, takeLatest, call, put, fork } from 'redux-saga/effects';
 import { get, post } from '../../utils/fetch';
 
 import { fetchCurrencies, createTransaction } from '../../redux/modules/dashboard/paymentGateway';
-import { transformCreateTransactionResponse } from '../../helpers/transformers/paymentGateway/paymentDetails';
+import transformCreateTransactionResponse from '../../helpers/transformers/paymentGateway/paymentDetails';
 
 /**
  * Fetch Currencies
