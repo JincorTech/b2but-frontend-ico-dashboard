@@ -33,7 +33,7 @@ class Transactions extends Component {
         {this._getSortedTransactions().map((t) => (
           t.type === 'gateway_transaction'
             ? <GatewayTransaction key={t.id} paymentData={t} openDetailsPopup={openDetailsPopup}/>
-            : <Transaction key={`${t.transactionHash}${t.type}${t.from}${t.to}`} {...t}/>
+            : <Transaction key={`${t.id}${t.type}${t.from}${t.to}`} {...t}/>
         ))}
       </div>
     );
