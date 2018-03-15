@@ -44,7 +44,39 @@ const getMock = (path) => {
           currency: 'LTCT',
           confirmsNeeded: '0', // total confirms needed
           totalAmount: '0.1', // Total Amount To Send
-          receivedAmount: '0.1', // Received So Far
+          receivedAmount: '0.0234', // Received So Far
+          receivedConfirms: '0', // received confirms
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
+          address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
+          timestamp: 1521028594,
+          expiredOn: 1521035000,
+          txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
+          statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
+        },
+        {
+          id: '5a003866ee3a9d0ad93aeba1',
+          type: 'gateway_transaction',
+          status: '-1', // 0 - Waiting for buyer funds..., 1 - Funds received and confirmed, sending to you shortly..., 100 - Complete
+          currency: 'BTC',
+          confirmsNeeded: '0', // total confirms needed
+          totalAmount: '0.1', // Total Amount To Send
+          receivedAmount: '0.0234', // Received So Far
+          receivedConfirms: '0', // received confirms
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
+          address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
+          timestamp: 1521028594,
+          expiredOn: 1521035000,
+          txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
+          statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
+        },
+        {
+          id: '5a003866ee3a9d0ad93aeba1',
+          type: 'gateway_transaction',
+          status: '0', // 0 - Waiting for buyer funds..., 1 - Funds received and confirmed, sending to you shortly..., 100 - Complete
+          currency: 'LTC',
+          confirmsNeeded: '0', // total confirms needed
+          totalAmount: '0.1', // Total Amount To Send
+          receivedAmount: '0.0234', // Received So Far
           receivedConfirms: '0', // received confirms
           qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
           address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address

@@ -21,11 +21,11 @@ const GatewayTransaction = (props) => {
   const renderLabel = (status) => {
     switch (status) {
       case '-1':
-        return (<span className={s.failure}>CANCELLED / TIMED OUT</span>);
+        return (<span className={s.failure}>CANCELLED</span>);
       case '0':
-        return (<span className={s.pending}>WAITING FOR FUNDS</span>);
+        return (<span className={s.pending}>WAITING</span>);
       case '1':
-        return (<span className={s.success}>CONFIRMED, SENDING</span>);
+        return (<span className={s.success}>CONFIRMED</span>);
       case '100':
         return (<span className={s.success}>COMPLETE</span>);
       default:
