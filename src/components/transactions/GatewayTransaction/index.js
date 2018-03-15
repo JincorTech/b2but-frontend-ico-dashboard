@@ -1,17 +1,22 @@
 import React from 'react';
 import { format } from 'date-fns';
 import s from './styles.css';
+import Button from '../../common/Button';
 
 const GatewayTransaction = (props) => {
   const {
+    openDetailsPopup
+  } = props;
+
+  const {
+    id,
     status,
     currency,
     totalAmount,
     expiredOn,
-    statusUrl,
     txnId,
     timestamp
-  } = props;
+  } = props.paymentData;
 
   const renderLabel = (status) => {
     switch (status) {
@@ -44,8 +49,8 @@ const GatewayTransaction = (props) => {
           <span>Transaction ID — {txnId}</span>
           {renderLabel(status)}
         </div>
-        <div className={s.address}>
-          <a href={statusUrl} target="_blank">Transaction details</a>
+        <div className={s.button}>
+          <Button size="small" onClick={() => openDetailsPopup(id)}>Show details</Button>
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ const getMock = (path) => {
           totalAmount: '0.1', // Total Amount To Send
           receivedAmount: '0.1', // Received So Far
           receivedConfirms: '0', // received confirms
-          qrcodeUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=XXX&key=ZZZ',
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
           address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
           timestamp: 1521028594,
           expiredOn: 1521035000,

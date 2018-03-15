@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import s from './styles.css';
 
-import { fetchTransactions } from '../../../redux/modules/transactions/transactions';
+import { fetchTransactions, openDetailsPopup } from '../../../redux/modules/transactions/transactions';
 import { openMakeDepositPopup } from '../../../redux/modules/app/makeDepositPopup';
 
 import Transaction from '../../../components/transactions/Transaction';
 import GatewayTransaction from '../../../components/transactions/GatewayTransaction';
 import Button from '../../../components/common/Button';
+import GatewayTransactionDetailsPopup from '../GatewayTransactionDetailsPopup';
 
 class Transactions extends Component {
   componentWillMount() {
@@ -24,14 +25,14 @@ class Transactions extends Component {
   }
 
   render() {
-    const { transactions, openMakeDepositPopup } = this.props;
+    const { transactions, openMakeDepositPopup, openDetailsPopup } = this.props;
 
     const renderTransactions = () => (
       <div className={s.main}>
         <div className={s.title}>Latest transactions</div>
         {this._getSortedTransactions().map((t) => (
           t.type === 'gateway_transaction'
-            ? <GatewayTransaction key={t.id} {...t}/>
+            ? <GatewayTransaction key={t.id} paymentData={t} openDetailsPopup={openDetailsPopup}/>
             : <Transaction key={`${t.transactionHash}${t.type}${t.from}${t.to}`} {...t}/>
         ))}
       </div>
@@ -50,6 +51,7 @@ class Transactions extends Component {
     return (
       <div className={s.wrapper}>
         {transactions.length > 0 ? renderTransactions() : renderMock()}
+        <GatewayTransactionDetailsPopup/>
       </div>
     );
   }
@@ -61,6 +63,7 @@ export default connect(
   }),
   {
     fetchTransactions,
-    openMakeDepositPopup
+    openMakeDepositPopup,
+    openDetailsPopup
   }
 )(Transactions);

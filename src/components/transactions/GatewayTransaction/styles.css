@@ -59,3 +59,8 @@
   composes: label;
   background-color: #6e7987;
 }
+
+.button {
+  width: 112px;
+  margin-top: 17px;
+}
