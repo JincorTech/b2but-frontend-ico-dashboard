@@ -176,7 +176,7 @@ const getMock = (path) => {
         ]
       };
 
-    case '/dashboard/currencies':
+    case '/gateway/currencies':
       return {
         BTC: {
           is_fiat: 0,
@@ -247,7 +247,7 @@ const postMock = (path, body) => {
         }
       };
 
-    case '/dashboard/createTransaction':
+    case '/gateway/createTransaction':
       console.log('!!! POST GATEWAY TRANSACTION:', body);
       return {
         amount: '1.00000000',

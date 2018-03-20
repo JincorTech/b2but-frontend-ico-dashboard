@@ -10,7 +10,7 @@ import transformCreateTransactionResponse from '../../helpers/transformers/payme
 
 function* fetchCurrenciesIterator() {
   try {
-    const data = yield call(get, '/dashboard/currencies');
+    const data = yield call(get, '/gateway/currencies');
     yield put(fetchCurrencies.success(data));
   } catch (e) {
     yield put(fetchCurrencies.failure(e));
@@ -30,7 +30,7 @@ function* fetchCurrenciesSaga() {
 
 function* createTransactionIterator({ payload }) {
   try {
-    const data = yield call(post, '/dashboard/createTransaction', payload);
+    const data = yield call(post, '/gateway/createTransaction', payload);
     yield put(createTransaction.success(transformCreateTransactionResponse(data)));
   } catch (e) {
     yield put(createTransaction.failure(e));
