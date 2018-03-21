@@ -13,9 +13,9 @@ const GatewayTransaction = (props) => {
     status,
     currency,
     totalAmount,
-    expiredOn,
     txnId,
-    timestamp
+    timestamp,
+    timeout
   } = props.paymentData;
 
   const renderLabel = (status) => {
@@ -40,9 +40,9 @@ const GatewayTransaction = (props) => {
   return (
     <div className={s.transaction}>
       <div className={s.info}>
-        <div className={s.date}>{format(new Date(timestamp * 1000), 'DD/MM/YYYY hh:mm:ss')}
+        <div className={s.date}>{format(new Date(timestamp), 'DD/MM/YYYY hh:mm:ss')}
           <span className={s.dateCaption}>Expire on: </span>
-          {format(new Date(expiredOn * 1000), 'DD/MM/YYYY hh:mm:ss')}
+          {format(new Date(timestamp + timeout), 'DD/MM/YYYY hh:mm:ss')}
         </div>
         {renderName()}
         <div className={s.address}>

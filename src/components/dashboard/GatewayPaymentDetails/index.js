@@ -13,7 +13,7 @@ const GatewayPaymentDetails = (props) => {
     address,
     qrcodeUrl,
     timeout,
-    expiredOn,
+    timestamp,
     txnId,
     confirmsNeeded,
     receivedAmount,
@@ -63,7 +63,7 @@ const GatewayPaymentDetails = (props) => {
     },
     {
       caption: 'Expiration date:',
-      value: expiredOn ? format(new Date(expiredOn * 1000), 'DD/MM/YYYY hh:mm:ss') : null
+      value: timestamp && timeout ? format(new Date(timestamp + timeout), 'DD/MM/YYYY hh:mm:ss') : null
     },
     {
       caption: 'Payment ID:',
