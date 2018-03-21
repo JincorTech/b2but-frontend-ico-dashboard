@@ -48,8 +48,8 @@ const getMock = (path) => {
           receivedConfirms: '0', // received confirms
           qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
           address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
-          timestamp: 1521028594,
-          expiredOn: 1521035000,
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
           timeout: 86400,
           txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
           statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
@@ -65,8 +65,8 @@ const getMock = (path) => {
           receivedConfirms: '0', // received confirms
           qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
           address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
-          timestamp: 1521028594,
-          expiredOn: 1521035000,
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
           timeout: 86400,
           txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
           statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
@@ -82,8 +82,8 @@ const getMock = (path) => {
           receivedConfirms: '0', // received confirms
           qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
           address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
-          timestamp: 1521028594,
-          expiredOn: 1521035000,
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
           timeout: 86400,
           txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
           statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net

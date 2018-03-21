@@ -63,7 +63,7 @@ const GatewayPaymentDetails = (props) => {
     },
     {
       caption: 'Expiration date:',
-      value: timestamp && timeout ? format(new Date(timestamp + timeout), 'DD/MM/YYYY hh:mm:ss') : null
+      value: timestamp && timeout ? format(new Date(timestamp + (timeout * 1000)), 'DD/MM/YYYY hh:mm:ss') : null
     },
     {
       caption: 'Payment ID:',
