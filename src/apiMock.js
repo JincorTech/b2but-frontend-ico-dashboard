@@ -38,7 +38,58 @@ const getMock = (path) => {
     case '/dashboard/transactions':
       return [
         {
+          id: '5a003866ee3a9d0ad93aeba1',
+          type: 'gateway_transaction',
+          status: '100', // 0 - Waiting for buyer funds..., 1 - Funds received and confirmed, sending to you shortly..., 100 - Complete
+          currency: 'LTCT',
+          confirmsNeeded: '0', // total confirms needed
+          totalAmount: '0.1', // Total Amount To Send
+          receivedAmount: '0.0234', // Received So Far
+          receivedConfirms: '0', // received confirms
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
+          address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
+          timeout: 86400,
+          txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
+          statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
+        },
+        {
+          id: '5a003866ee3a9d0ad93aeba2',
+          type: 'gateway_transaction',
+          status: '-1', // 0 - Waiting for buyer funds..., 1 - Funds received and confirmed, sending to you shortly..., 100 - Complete
+          currency: 'BTC',
+          confirmsNeeded: '0', // total confirms needed
+          totalAmount: '0.1', // Total Amount To Send
+          receivedAmount: '0.0234', // Received So Far
+          receivedConfirms: '0', // received confirms
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
+          address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
+          timeout: 86400,
+          txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
+          statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
+        },
+        {
           id: '5a003866ee3a9d0ad93aeba3',
+          type: 'gateway_transaction',
+          status: '0', // 0 - Waiting for buyer funds..., 1 - Funds received and confirmed, sending to you shortly..., 100 - Complete
+          currency: 'LTC',
+          confirmsNeeded: '0', // total confirms needed
+          totalAmount: '0.1', // Total Amount To Send
+          receivedAmount: '0.0234', // Received So Far
+          receivedConfirms: '0', // received confirms
+          qrcodeUrl: 'http://image.ibb.co/mKkWFx/static_qr_code_without_logo.png',
+          address: 'mwyyRgo5Z3bvtoDaVijSVksi6ipGrqaPAf', // Send To Address
+          timestamp: 1521028594000,
+          expiredOn: 1521035000000,
+          timeout: 86400,
+          txnId: 'CPCC4YZXHG2Q1QZ37F0Y5YDAVO',
+          statusUrl: 'https://www.coinpayments.net/index.php?cmd=status&id=CPCC2VST0IPSVWFQ9MMOEJWPPT&key=76d3384d3e58552d8d9036f7d2ab5974' // link on the transaction status on coinpayments.net
+        },
+        {
+          id: '5a003866ee3a9d0ad93aeba4',
           transactionHash: '0xe423dd7d40b039e4e30ad7b5520f5905c6ec8c11122c94e3858c70e7983b5d7e',
           timestamp: 1509963894,
           blockNumber: 2016136,
@@ -128,7 +179,7 @@ const getMock = (path) => {
         ]
       };
 
-    case '/dashboard/currencies':
+    case '/gateway/currencies':
       return {
         BTC: {
           is_fiat: 0,
@@ -199,7 +250,7 @@ const postMock = (path, body) => {
         }
       };
 
-    case '/dashboard/createTransaction':
+    case '/gateway/createTransaction':
       console.log('!!! POST GATEWAY TRANSACTION:', body);
       return {
         amount: '1.00000000',

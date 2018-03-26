@@ -1,0 +1,66 @@
+@use postcss-short;
+
+.transaction {
+  padding: 25px 0;
+  border-bottom: 1px solid #e6e8eb;
+}
+
+.date {
+  font: normal 16px Roboto;
+  color: #6e7987;
+}
+
+.dateCaption {
+  margin-left: 30px;
+  font: normal 16px Roboto;
+  color: #ff8989;
+}
+
+.name {
+  font: normal 26px/36px Roboto;
+  color: #222;
+  margin-top: 10px;
+}
+
+.address {
+  font: normal 16px Roboto;
+  color: #6e7987;
+  margin-top: 10px;
+
+  & a {
+    color: #01a3b1;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.label {
+  font: normal 10px Roboto;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px 5px;
+  color: #fff;
+  margin: 0 12px;
+  border-radius: 2px;
+}
+
+.failure {
+  composes: label;
+  background-color: #ff4c4c;
+}
+
+.success {
+  composes: label;
+  background-color: #24c284;
+}
+
+.pending {
+  composes: label;
+  background-color: #6e7987;
+}
+
+.button {
+  width: 112px;
+  margin-top: 17px;
+}
