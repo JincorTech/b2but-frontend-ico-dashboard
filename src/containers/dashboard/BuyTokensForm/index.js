@@ -119,10 +119,10 @@ class BuyTokensForm extends Component {
           <div className={s.field}>
             <Field
               component={RenderInput}
-              tip="UTT"
+              tip="EXON"
               size="large"
               name="jcr"
-              placeholder="0 UTT"
+              placeholder="0 EXON"
               disabled/>
           </div>
 
@@ -148,12 +148,12 @@ class BuyTokensForm extends Component {
 
         <div className={s.tip}>
           <p>
-            Now you can purchase UTT tokens with ETH.<br/>
+            Now you can purchase EXON tokens with ETH.<br/>
             Use this calculator to evaluate the transaction rates.
           </p>
           <p>
             Enter the amount of ETH you want to contribute and find out the
-            amount of UTT tokens you will get.
+            amount of EXON tokens you will get.
             Please note that a little bit ETH adding on top to cover the gas fee.<br/>
             <a onClick={() => openTxFeeHelp()}>What is the gas fee?</a>
           </p>

@@ -18,7 +18,7 @@ const BuyTokensForm = (props) => {
             component={RenderInput}
             size="large"
             name="amount"
-            placeholder="0 UTT Tokens"/>
+            placeholder="0 EXON Tokens"/>
         </div>
 
         <div className={s.field}>
