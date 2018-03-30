@@ -37,13 +37,13 @@ class AlternativeBalanceInfo extends Component {
 
         <div className={s.block}>
           <div className={s.val}>{bigNum(dashboard.jcrTokenBalance, 2)}</div>
-          <div className={s.label}>UTT token balance</div>
+          <div className={s.label}>EXON token balance</div>
         </div>
 
         <div className={s.block}>
           {renderRate(rate)}
           <div className={s.label}>
-            Per UTT token in&nbsp;
+            Per EXON token in&nbsp;
             <button
               onClick={() => this.setState({ rate: 'eth' })}
               className={rate === 'eth' ? s.activeCurrencyButton : s.currencybutton}>ETH</button>&nbsp;•&nbsp;
