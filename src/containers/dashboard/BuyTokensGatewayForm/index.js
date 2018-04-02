@@ -142,10 +142,10 @@ class BuyTokensGatewayForm extends Component {
           <div className={s.field}>
             <Field
               component={RenderInput}
-              tip="B2B"
+              tip="EXON"
               size="large"
               name="tokens"
-              placeholder="0 B2B"
+              placeholder="0 EXON"
               disabled/>
           </div>
 
@@ -165,12 +165,12 @@ class BuyTokensGatewayForm extends Component {
 
         <div className={s.tip}>
           <p>
-            Now you can purchase B2B tokens with {selectedCurrency}.<br/>
+            Now you can purchase EXON tokens with {selectedCurrency}.<br/>
             Use this calculator to evaluate the transaction rates.
           </p>
           <p>
             Enter the amount of {selectedCurrency} you want to contribute and find out the
-            amount of B2B tokens you will get.
+            amount of EXON tokens you will get.
             Please note that a little bit {selectedCurrency} adding on top to cover the tx fee.<br/>
             <a onClick={() => openTxFeeHelp()}>What is the tx fee?</a>
           </p>
